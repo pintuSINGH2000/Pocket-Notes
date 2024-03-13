@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import style from "../assets/css/creategroup.module.css";
 import { GroupContext } from "../context/GroupContext";
 
-const CreateGroup = ({visible,setVisible}) => {
+const CreateGroup = ({ visible, setVisible }) => {
   const { group, updateGroup } = useContext(GroupContext);
   const [groupName, setGroupName] = useState("");
   const [groupcolor, setGroupColor] = useState("");
+  const [groupNameErr, setGroupNameErr] = useState(null);
+  const [groupColorErr, setGroupColorErr] = useState(null);
 
   const colorOptions = [
     "rgba(179, 139, 250, 1)",
@@ -17,15 +19,35 @@ const CreateGroup = ({visible,setVisible}) => {
   ];
 
   const handleSubmit = () => {
+    var isValid = true;
+    if (groupName.trim().length === 0) {
+      setGroupNameErr("Group name cannot be empty.");
+      isValid = false;
+    } else if(group.some((group) => group.name === groupName.trim())){
+      setGroupNameErr(groupName+" is already Added");
+      isValid=false;
+    }else{
+      setGroupNameErr(null);
+    }
+    if (groupcolor.trim().length === 0) {
+      setGroupColorErr("Please select a color.");
+      isValid = false;
+    } else {
+      setGroupColorErr(null);
+    }
+    if (!isValid) return;
     setVisible(false);
-      updateGroup({"name":groupName,"color":groupcolor})
-      setGroupName("");
-      setGroupColor("");
-  }
+    group.push({ name: groupName, color: groupcolor,notes:[] })
+    updateGroup(group);
+    setGroupName("");
+    setGroupColor("");
+  };
   return (
     <div>
       <h3 className={style.title}>Create New Group</h3>
-      <div style={{ display: "flex",alignItems:"center",padding:"10px 0px" }}>
+      <div
+        style={{ display: "flex", alignItems: "center", padding: "10px 0px" }}
+      >
         <div className={`${style.name} roboto-500`}>Group Name</div>
         <input
           type="text"
@@ -38,6 +60,7 @@ const CreateGroup = ({visible,setVisible}) => {
           className={`${style.input} roboto-400`}
         />
       </div>
+      {groupNameErr && <div className={`${style.grouperror} error dm-sans`}>{groupNameErr}</div>}
       <div className={style.colorinput}>
         <div className={`${style.name} roboto-500`}>Select a color</div>
         {colorOptions.map((color) => (
@@ -49,11 +72,20 @@ const CreateGroup = ({visible,setVisible}) => {
             style={{
               backgroundColor: color,
             }}
-            className={`${style.coloroption} ${groupcolor === color ? style.increasesize: style.normalsize}`}
+            className={`${style.coloroption} ${
+              groupcolor === color ? style.increasesize : style.normalsize
+            }`}
           />
         ))}
       </div>
-      <button type="submit" className={`${style.submit} roboto-400`} onClick={handleSubmit}>Create</button>
+      {groupColorErr && <div className={`${style.grouperror} error dm-sans`}>{groupColorErr}</div>}
+      <button
+        type="submit"
+        className={`${style.submit} roboto-400`}
+        onClick={handleSubmit}
+      >
+        Create
+      </button>
     </div>
   );
 };

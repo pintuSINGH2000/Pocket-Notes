@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useReducer } from "react";
 
 const INITIAL_STATE = {
-  group: JSON.parse(localStorage.getItem("group")) || null,
+  group: JSON.parse(localStorage.getItem("group")) || [],
 };
 
 const actionTypes = {
@@ -41,7 +41,7 @@ const GroupContextProvider = ({ children }) => {
   return (
     <GroupContext.Provider
       value={{
-        Group: state.Group,
+        group: state.group,
         updateGroup
       }}
     >
