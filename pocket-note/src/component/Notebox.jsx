@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import style from "../assets/css/notebox.module.css";
 import { IoSend } from "react-icons/io5";
 import { GroupContext } from "../context/GroupContext";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import moment from "moment";
 
-const Notebox = ({ currentGroup, group, updateGroup }) => {
+const Notebox = ({ currentGroup, group, updateGroup,setCurrentGroup }) => {
   const [note, setNote] = useState("");
   const words = currentGroup.name.split(" ");
   var name = words[0][0];
@@ -27,6 +28,7 @@ const Notebox = ({ currentGroup, group, updateGroup }) => {
   return (
     <>
       <div className={style.header}>
+        <IoIosArrowRoundBack  className={`${style.back}`} onClick={()=>setCurrentGroup(null)} />
         <div
           style={{ backgroundColor: currentGroup.color }}
           className={`${style.profile} roboto-500`}

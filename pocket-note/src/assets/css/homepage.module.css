@@ -16,13 +16,13 @@
   font-size: 35px;
   line-height: 41px;
   color: black;
-  height: 137px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: sticky;
   top: 0;
   background: white;
+  padding: 60px 0px 30px 0px;
 }
 
 .addbtn {
@@ -113,6 +113,7 @@ body {
 
 
 .footer {
+  position: absolute;
   bottom: 10px;
   display: flex;
   align-items: center;
@@ -122,4 +123,33 @@ body {
   letter-spacing: 0.02em;
 }
 
+
+@media screen and (max-width: 600px) {
+  .displaynone {
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+
+  .right{
+    width: 100%;
+  }
+
+  .lefttitle{
+    font-size: 31.52px;
+    line-height: 36.94px;
+    display: block;
+    padding-left: 30px;
+  }
+  .addbtn {
+    width: 75px;
+    height: 75px;
+    font-size: 40px;
+    line-height: 39.08px;
+  }
+  .emptystate{
+    display: none;
+  }
+}
 

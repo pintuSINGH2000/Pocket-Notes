@@ -15,7 +15,7 @@ const Homepage = () => {
 
   return (
     <div className={`${style.container}`}>
-      <div className={`${style.left}`}>
+          <div className={`${style.left} ${currentGroup&&style.displaynone}`}>
         <div className={`${style.lefttitle} roboto-500`}>Pocket Notes</div>
         <button
           className={`${style.addbtn} roboto-500`}
@@ -38,9 +38,9 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className={`${style.right} roboto-500`}>
+      <div className={`${style.right} ${!currentGroup&&style.displaynone} roboto-500`}>
         {currentGroup ? (
-          <Notebox currentGroup={currentGroup} group={group} updateGroup={updateGroup}/>
+          <Notebox currentGroup={currentGroup} group={group} updateGroup={updateGroup} setCurrentGroup={setCurrentGroup}/>
         ) : (
           <div className={`${style.emptystate}`}>
             <img src={emptyimg} alt="initial note message" />

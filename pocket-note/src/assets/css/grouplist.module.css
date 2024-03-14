@@ -33,3 +33,20 @@
     text-transform: uppercase;
     color: white;
 }
+
+
+@media screen and (max-width: 600px) {
+    .name{
+       font-size: 18.6px;
+       line-height: 21.8px;
+
+    }
+    
+    .profile{
+        width: 62px;
+        height: 62px;
+        font-size: 20px;
+        line-height: 20px;
+        margin: 15px 30px 15px 0px;
+    }
+}
