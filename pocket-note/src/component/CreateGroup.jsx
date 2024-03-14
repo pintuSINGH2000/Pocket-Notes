@@ -37,7 +37,7 @@ const CreateGroup = ({ visible, setVisible }) => {
     }
     if (!isValid) return;
     setVisible(false);
-    group.push({ name: groupName, color: groupcolor,notes:[] })
+    group.push({ id:group.length+1,name: groupName, color: groupcolor,notes:[] })
     updateGroup(group);
     setGroupName("");
     setGroupColor("");
