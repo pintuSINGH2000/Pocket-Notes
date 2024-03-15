@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Button, Modal } from "antd";
+import { useContext, useState } from "react";
+import {  Modal } from "antd";
 import style from "../assets/css/homepage.module.css";
 import CreateGroup from "../component/CreateGroup";
 import { GroupContext } from "../context/GroupContext";
@@ -63,10 +63,11 @@ const Homepage = () => {
         open={visible}
         closable={false}
       >
-        <CreateGroup visible={visible} setVisible={setVisible} />
+        <CreateGroup setVisible={setVisible} />
       </Modal>
     </div>
   );
 };
+
 
 export default Homepage;

@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import style from "../assets/css/creategroup.module.css";
 import { GroupContext } from "../context/GroupContext";
+import PropTypes from 'prop-types';
 
-const CreateGroup = ({ visible, setVisible }) => {
+const CreateGroup = ({ setVisible }) => {
   const { group, updateGroup } = useContext(GroupContext);
   const [groupName, setGroupName] = useState("");
   const [groupcolor, setGroupColor] = useState("");
@@ -88,6 +89,10 @@ const CreateGroup = ({ visible, setVisible }) => {
       </button>
     </div>
   );
+};
+
+CreateGroup.propTypes = {
+  setVisible: PropTypes.func,
 };
 
 export default CreateGroup;

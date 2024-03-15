@@ -1,5 +1,5 @@
-import React from 'react';
 import style from '../assets/css/grouplist.module.css'; 
+import PropTypes from 'prop-types';
 
 const GroupList = ({group,currentGroup,setCurrentGroup}) => {
     const words = group.name.split(' ');
@@ -15,5 +15,10 @@ const GroupList = ({group,currentGroup,setCurrentGroup}) => {
     </div>
   )
 }
+GroupList.propTypes = {
+  currentGroup: PropTypes.object,
+  setCurrentGroup: PropTypes.func,
+  group: PropTypes.object,
+};
 
 export default GroupList

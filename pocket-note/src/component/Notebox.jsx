@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import style from "../assets/css/notebox.module.css";
 import { IoSend } from "react-icons/io5";
-import { GroupContext } from "../context/GroupContext";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import PropTypes from 'prop-types';
 import moment from "moment";
 
 const Notebox = ({ currentGroup, group, updateGroup,setCurrentGroup }) => {
@@ -72,4 +72,10 @@ const Notebox = ({ currentGroup, group, updateGroup,setCurrentGroup }) => {
   );
 };
 
+Notebox.propTypes = {
+  currentGroup: PropTypes.object.isRequired,
+  setCurrentGroup: PropTypes.func.isRequired,
+  group: PropTypes.array.isRequired,
+  updateGroup:PropTypes.func.isRequired
+};
 export default Notebox;
