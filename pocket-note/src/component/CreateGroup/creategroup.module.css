@@ -49,6 +49,9 @@
   display: flex;
   margin-left: auto;
   border: none;
+  cursor: pointer;
+  min-height: 30px;
+  width: 138px
 }
 
 .grouperror{
@@ -89,7 +92,8 @@
     width: 80%;
     margin: auto;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    
   }
 
   .grouperror{

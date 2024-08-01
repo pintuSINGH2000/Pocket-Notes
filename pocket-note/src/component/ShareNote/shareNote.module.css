@@ -1,0 +1,109 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cardContainer {
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.spinner {
+  width: 100%;
+  height: 70vh;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 1);
+  margin: 40px;
+}
+
+.title img {
+  margin-right: 15px;
+  width: 24px;
+  height: 24px;
+}
+
+.card {
+  width: 93%;
+  max-width: 600px;
+  height: 75vh;
+  background: white;
+  font-size: 18px;
+  line-height: 30px;
+  margin: 3% 4%;
+  padding: 25px 30px;
+  border-radius: 5px;
+  letter-spacing: 0.035em;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  word-break: break-all;
+}
+
+.card::-webkit-scrollbar {
+  width: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.card::-webkit-scrollbar-track-piece {
+  background-color: #ccc;
+}
+
+.card::-webkit-scrollbar-track-piece:start {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.noteFooter {
+  display: flex;
+  margin: 20px 10px 0px 0px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datetime {
+  display: flex;
+  align-items: center;
+  color: rgba(53, 53, 53, 1);
+}
+
+.ellipse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(53, 53, 53, 1);
+  margin: 0px 10px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 90%;
+    min-width: unset;
+  }
+
+  .title {
+    margin: 40px 20px 0px 20px;
+  }
+
+  .noteFooter{
+    flex-direction: column-reverse;
+    text-align: center;
+    
+  }
+}

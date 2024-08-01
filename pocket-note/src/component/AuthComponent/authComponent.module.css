@@ -1,0 +1,50 @@
+
+.container{
+    width: 100vw;
+    min-height: 100vh;
+    background: rgba(242, 242, 242, 1);
+}
+
+.card{
+    flex-direction: column;
+    width: 80vw;
+    min-height: 85vh;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    margin: 7vh;
+}
+
+.title{
+    font-family: "Jomhuria", serif;
+    font-weight: 400;
+    font-size: 100px;
+    margin: 35px 0px 10px 0px;
+}
+.auth{
+    width: 38%;
+    margin-bottom: 20px;
+}
+
+.authTitle{
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0px;
+}
+
+.selectedAuth{
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    width: 50%;
+    height: 37px;
+}
+
+.submit{
+    background: rgba(169, 188, 255, 1);
+    width: 18vw;
+    height: 38px;
+    font-size: 20px;
+    margin: 0px 0px 35px 0px;
+}
+
+.login{
+    margin-top: 25px !important;
+}

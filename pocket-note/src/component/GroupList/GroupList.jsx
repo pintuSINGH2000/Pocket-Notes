@@ -1,4 +1,4 @@
-import style from '../assets/css/grouplist.module.css'; 
+import style from './grouplist.module.css'; 
 import PropTypes from 'prop-types';
 
 const GroupList = ({group,currentGroup,setCurrentGroup}) => {

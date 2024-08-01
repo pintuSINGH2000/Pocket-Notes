@@ -1,14 +1,15 @@
-import  { useContext, useState } from "react";
-import style from "../assets/css/creategroup.module.css";
-import { GroupContext } from "../context/GroupContext";
+import  { useState } from "react";
+import style from "./creategroup.module.css";
 import PropTypes from 'prop-types';
+import { createFolder } from "../../api/note";
+import Spinner from "../Spinner/Spinner";
 
-const CreateGroup = ({ setVisible }) => {
-  const { group, updateGroup } = useContext(GroupContext);
+const CreateGroup = ({ setVisible,group,setGroup }) => {
   const [groupName, setGroupName] = useState("");
   const [groupcolor, setGroupColor] = useState("");
   const [groupNameErr, setGroupNameErr] = useState(null);
   const [groupColorErr, setGroupColorErr] = useState(null);
+  const [loader,setloader] = useState(false);
 
   const colorOptions = [
     "rgba(179, 139, 250, 1)",
@@ -19,12 +20,13 @@ const CreateGroup = ({ setVisible }) => {
     "rgba(102, 145, 255, 1)",
   ];
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    console.log("pintu");
     var isValid = true;
     if (groupName.trim().length === 0) {
       setGroupNameErr("Group name cannot be empty.");
       isValid = false;
-    } else if(group.some((group) => group.name === groupName.trim())){
+    } else if(group?.some((gr) => gr.name === groupName.trim())){
       setGroupNameErr(groupName+" is already Added");
       isValid=false;
     }else{
@@ -37,9 +39,15 @@ const CreateGroup = ({ setVisible }) => {
       setGroupColorErr(null);
     }
     if (!isValid) return;
+    setloader(true);
+    const res = await createFolder({name:groupName,color:groupcolor});
+    console.log(res);
+    if(res){
+      console.log(group);
+      setGroup([...group,res]);
+    }
+    setloader(false);
     setVisible(false);
-    group.push({ id:group.length+1,name: groupName, color: groupcolor,notes:[] })
-    updateGroup(group);
     setGroupName("");
     setGroupColor("");
   };
@@ -81,11 +89,10 @@ const CreateGroup = ({ setVisible }) => {
       </div>
       {groupColorErr && <div className={`${style.grouperror} error dm-sans`}>{groupColorErr}</div>}
       <button
-        type="submit"
-        className={`${style.submit} roboto-400`}
+        className={`${style.submit} roboto-400 flexbox-center`}
         onClick={handleSubmit}
       >
-        Create
+        {loader?<Spinner />:"Create"}
       </button>
     </div>
   );
@@ -93,6 +100,8 @@ const CreateGroup = ({ setVisible }) => {
 
 CreateGroup.propTypes = {
   setVisible: PropTypes.func,
+  group: PropTypes.array.isRequired,
+  setGroup: PropTypes.func.isRequired,
 };
 
 export default CreateGroup;

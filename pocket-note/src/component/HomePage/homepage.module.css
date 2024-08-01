@@ -13,16 +13,17 @@
 }
 
 .lefttitle {
-  font-size: 35px;
-  line-height: 41px;
   color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: sticky;
   top: 0;
   background: white;
   padding: 60px 0px 30px 0px;
+}
+
+.title{
+  text-align: center;
+  font-size: 35px;
+  line-height: 41px;
 }
 
 .addbtn {
@@ -39,6 +40,7 @@
   top: 79%;
   margin-left: -116px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .grouplist {
@@ -111,7 +113,6 @@ body {
   color: rgba(41, 41, 41, 1);
 }
 
-
 .footer {
   position: absolute;
   bottom: 10px;
@@ -123,6 +124,64 @@ body {
   letter-spacing: 0.02em;
 }
 
+.search {
+  margin: 0px 30px 0px 68px;
+  border: 2px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.searchInput {
+  border: none;
+  font-size: 17px;
+  width: 90%;
+  padding: 0px 15px;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchIcon {
+  font-size: 8px;
+  width: 12%;
+  background: grey;
+  height: 100%;
+  color: white;
+}
+
+.searchContainer{
+  position: relative;
+  margin-top: 40px;
+}
+
+.searchResult{
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  max-height: 269px;
+  overflow: auto;
+  width: 74%;
+  left: 19%;
+  position: absolute;
+  background: white;
+  z-index: 1;
+  border-radius: 10px;
+  top: 124%;
+  padding: 10px;
+}
+
+.list{
+  height: 40px;
+  height: 90%;
+  word-break: break-all;
+  cursor: pointer;
+  padding: 10px 10px;
+  color: blue;
+}
 
 @media screen and (max-width: 600px) {
   .displaynone {
@@ -132,11 +191,11 @@ body {
     width: 100%;
   }
 
-  .right{
+  .right {
     width: 100%;
   }
 
-  .lefttitle{
+  .lefttitle {
     font-size: 31.52px;
     line-height: 36.94px;
     display: block;
@@ -148,8 +207,7 @@ body {
     font-size: 40px;
     line-height: 39.08px;
   }
-  .emptystate{
+  .emptystate {
     display: none;
   }
 }
-
