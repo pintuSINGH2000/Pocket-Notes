@@ -15,7 +15,6 @@ const ShareNote = () => {
     const getNoteData = async () => {
       setProcessing(true);
       const res = await getNote(noteId);
-      console.log(res);
       if (res) {
         setNote(res?.note);
         setUser(res?.user);

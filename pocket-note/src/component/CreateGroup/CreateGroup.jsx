@@ -21,7 +21,6 @@ const CreateGroup = ({ setVisible,group,setGroup }) => {
   ];
 
   const handleSubmit = async () => {
-    console.log("pintu");
     var isValid = true;
     if (groupName.trim().length === 0) {
       setGroupNameErr("Group name cannot be empty.");
@@ -41,9 +40,7 @@ const CreateGroup = ({ setVisible,group,setGroup }) => {
     if (!isValid) return;
     setloader(true);
     const res = await createFolder({name:groupName,color:groupcolor});
-    console.log(res);
     if(res){
-      console.log(group);
       setGroup([...group,res]);
     }
     setloader(false);

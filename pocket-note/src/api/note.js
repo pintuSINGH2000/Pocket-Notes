@@ -6,7 +6,6 @@ export const createFolder = async (folderData) => {
   try {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = JSON.parse(token);
-    console.log(folderData);
     const res = await axios.post(`${backendUrl}note/create-folder`, folderData);
     toast.success(res?.data?.message);
     return res?.data?.folder;

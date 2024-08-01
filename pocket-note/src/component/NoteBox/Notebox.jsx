@@ -58,7 +58,6 @@ const Notebox = ({ currentGroup, setCurrentGroup, searchNote }) => {
     }
     setProcessing(true);
     const res = await addNote({ note: note, folder: currentGroup._id });
-    console.log(res);
     if (res) {
       setAllNote([...allNote, res]);
       setNote("");

@@ -17,7 +17,6 @@ const ShareGroup = () => {
     const getNoteData = async () => {
       setProcessing(true);
       const res = await getAllNote(groupId);
-      console.log(res);
       if (res) {
         setCurrentGroup(res?.folder);
         setNotes(res?.notes);

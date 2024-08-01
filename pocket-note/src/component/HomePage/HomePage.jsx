@@ -62,7 +62,6 @@ const Homepage = () => {
   useEffect(() => {
     const getGroup = async () => {
       const res = await getFolders();
-      console.log(res);
       setGroup(res?.folders || []);
     };
     getGroup();
